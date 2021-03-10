@@ -2,7 +2,24 @@ import React from 'react'; // specify the module and then specify the library na
                             // meteor takes care of the rest
 import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor'; // named export from Meteor
+import {UP_Collection_Access} from './../imports/api/user_posts.js';
 
+// the following is an empty array b/c DDP has not synched up with the two DB
+console.log('Postings 1', UP_Collection_Access.find().fetch());
+// hack fix - set a timeout
+
+setTimeout(function(){
+  console.log('Posting 2', UP_Collection_Access.find().fetch());
+}, 1000);
+// this is a bad solution because it only fires once
+// if the data updates we wont see the update
+
+
+// it is better to use a built in meteor function called Tracker
+// Tracker tracks queries and reruns code when queries change
+Tracker.autorun(function(){
+  console.log('Posting 3', UP_Collection_Access.find().fetch());
+});
 
 const renderPosts = function (passed_posts) {
   console.log(passed_posts);
