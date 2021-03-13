@@ -7,15 +7,15 @@ import {UP_Collection_Access} from './../imports/api/user_posts.js';
 
 
 Meteor.startup(function(){
-    UP_Collection_Access.insert({
-      topic: 'dog',
-      votes: 9,
-    });
+    // UP_Collection_Access.insert({
+    //   topic: 'dogs',
+    //   votes: 9,
+    // });
 
-    UP_Collection_Access.insert({
-      topic: 'bird',
-      votes: 93,
-    });
+    // UP_Collection_Access.insert({
+    //   topic: 'birds',
+    //   votes: 3,
+    // });
 
   console.log(UP_Collection_Access.find().fetch());
   // .find() returns everything
