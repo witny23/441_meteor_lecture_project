@@ -7,16 +7,16 @@ import {UP_Collection_Access} from './../imports/api/user_posts.js';
 
 
 
-const renderPosts = function (passed_posts) {
+const renderPosts =  (passed_posts) =>  {
   //console.log(passed_posts);
-  let formattedPosts = passed_posts.map(function(post){
+  let formattedPosts = passed_posts.map((post) => {
     return <p key={post._id}>{post.topic} have {post.votes} vote[s]</p>;
   });
 
   return formattedPosts;
 };
 
-const processFormDataFunction = function(event){
+const processFormDataFunction = (event) => {
   // the event (sometimes e) parameter is a default event handler object that is
   // passed in by the browser when an event occurs
   // this is an important argument becuase it allows us to access the topic name
@@ -36,10 +36,10 @@ const processFormDataFunction = function(event){
   };
 };
 
-Meteor.startup(function () {
+Meteor.startup(() =>  {
 
   // Tracker tracks queries and reruns code when queries change
-  Tracker.autorun(function(){
+  Tracker.autorun(() => {
     const allPostsInDB = UP_Collection_Access.find().fetch();
     let title = '441 reddit';
     let jsx = (
