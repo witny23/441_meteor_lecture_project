@@ -30,15 +30,8 @@ const renderPosts =  (passed_posts) =>  {
 };
 
 const processFormDataFunction = (event) => {
-  // the event (sometimes e) parameter is a default event handler object that is
-  // passed in by the browser when an event occurs
-  // this is an important argument becuase it allows us to access the topic name
-  // which we need in order to insert a new topic into the db
-  event.preventDefault() // stops the page from reloading
+  event.preventDefault()
   let newTopic = event.target.formInputNameAttribute.value;
-  // event.target grabs the target element - the form in this case which lets
-  // us grab any of its inputs by referencing it by name (.formInputNameAttribute)
-  // .value gets us the value
   if (newTopic){
     event.target.formInputNameAttribute.value = ''; // clear input box
     UP_Collection_Access.insert({
@@ -62,6 +55,7 @@ Meteor.startup(() =>  {
           <input type='text' name='formInputNameAttribute' placeholder='Topic Name'/>
           <button>Add Topic</button>
         </form>
+
         {renderPosts(allPostsInDB)}
       </div>
     );
