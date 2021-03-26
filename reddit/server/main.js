@@ -53,4 +53,21 @@ Meteor.startup(() => {
                     initial data, define a set of custom methods available to the class
                     THese methods can use the class's data
   */
+  class Person5 {
+    constructor(name = 'anonymous', age = 0){
+      this.name = name;
+      this.age = age;
+    }
+    getGreeting(){
+      return `hi, I am ${this.name}`;
+    }
+    getPersonDesctiption(){
+      return `${this.name} is ${this.age}`;
+    }
+  }
+  let me5 = new Person5('newman', 23);
+
+  console.log(me5.getGreeting());
+  console.log(me5.getPersonDesctiption());
+
 });
