@@ -68,4 +68,22 @@ Meteor.startup(() => {
   console.log(me8.getPersonDescription());
   let me9 = new Employee3('pam', 88); // test the if/else in the Employee class
   console.log(me9.getPersonDescription());
+
+
+
+  // challenge - customize the Person5 class
+  class Programmer extends Person5{
+    constructor (name, age, language = 'cobol'){
+      super(name, age);
+      this.language = language;
+    }
+    getGreeting(){
+      return `I am ${this.name}, I am ${this.age}, and I like to program in ${this.language}`
+    }
+  }
+  let me11 = new Programmer('whitney', 22, 'java');
+  console.log(me11.getGreeting());
+
+
+
 });
