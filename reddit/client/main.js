@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor'; // named export from Meteor
 import {UP_Collection_Access} from './../imports/api/user_posts.js';
 import TitleBar from './../imports/ui/TitleBar.js';
+import AddTopics from './../imports/ui/AddTopics.js';
 
 
 const renderPosts =  (passed_posts) =>  {
@@ -55,7 +56,7 @@ Meteor.startup(() =>  {
           <input type='text' name='formInputNameAttribute' placeholder='Topic Name'/>
           <button>Add Topic</button>
         </form>
-
+        <AddTopics />
         {renderPosts(allPostsInDB)}
       </div>
     );
