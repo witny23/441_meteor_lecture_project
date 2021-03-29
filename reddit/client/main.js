@@ -5,25 +5,27 @@ import {Meteor} from 'meteor/meteor'; // named export from Meteor
 import {UP_Collection_Access} from './../imports/api/user_posts.js';
 import TitleBar from './../imports/ui/TitleBar.js';
 import AddTopics from './../imports/ui/AddTopics.js';
+import RenderPost from './../imports/ui/RenderPost.js';
 
 
 const renderPosts =  (passed_posts) =>  {
   let formattedPosts = passed_posts.map((post) => {
-    return (
-      <p key={post._id}>
-        {post.topic} have {post.votes} vote[s] {''/* single space before button hack */}
-        {/* below is a statement function */}
-        <button onClick={() => {  // anonymous arrow function
-          UP_Collection_Access.update({_id: post._id}, {$inc: {votes: 1}})
-        }}>+1</button>
-        <button onClick={() => {
-          UP_Collection_Access.update({_id: post._id}, {$inc: {votes: -1}})
-        }}>-1</button>
-        <button onClick={() => {
-          UP_Collection_Access.remove({_id: post._id})
-        }}>X</button>
-      </p>
-    );
+    return <RenderPost key={post._id} />
+    // return (
+    //   <p key={post._id}>
+    //     {post.topic} have {post.votes} vote[s] {''/* single space before button hack */}
+    //     {/* below is a statement function */}
+    //     <button onClick={() => {  // anonymous arrow function
+    //       UP_Collection_Access.update({_id: post._id}, {$inc: {votes: 1}})
+    //     }}>+1</button>
+    //     <button onClick={() => {
+    //       UP_Collection_Access.update({_id: post._id}, {$inc: {votes: -1}})
+    //     }}>-1</button>
+    //     <button onClick={() => {
+    //       UP_Collection_Access.remove({_id: post._id})
+    //     }}>X</button>
+    //   </p>
+    // );
   });
 
   return formattedPosts;
@@ -38,7 +40,7 @@ Meteor.startup(() =>  {
     let jsx = (
       <div>
         <TitleBar title={title} moderator='newman'/>
-        <AddTopics votes={10}/>
+        <AddTopics />
         {renderPosts(allPostsInDB)}
       </div>
     );
