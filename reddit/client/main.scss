@@ -1,0 +1,15 @@
+body {
+  background-color: grey;
+}
+
+$blue: blue;
+
+* {
+  color: $blue;// color: $blue references the $blue variable we created.
+              // If it was $blue yellow; it would have turned to yellow
+}
+
+
+// meteor add fourseven:scss
+      // this will grab code from atmosphere
+      // it will also configure some stuff in the .meteor directory
