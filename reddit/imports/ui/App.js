@@ -12,9 +12,13 @@ export default class App extends React.Component {
         <TitleBar
           title={this.props.passedPropTitle}
           moderator={this.props.passedPropModerator}/>
-       {/* wrap AddTopic and TopicList with a div that utilizes the wrapper class */}
+
         <div className='wrapper'>
           <AddTopics />
+          {/*<AddTopics>
+            <h1>Test</h1>
+            <p>We need to tell AddTopic.js what to do with these children</p>
+          </AddTopics>*/}
           <TopicList passed_posts={this.props.passedPropAllPosts}/>
         </div>
         <Footer footerText={this.props.passedFooter} />
