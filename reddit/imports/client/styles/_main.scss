@@ -1,3 +1,15 @@
+// variables
+// $salmon: lightsalmon;
+// $blue: lightblue;
+// $green: lightgreen;
+
+// let's lighten those colors even further
+// https://sass-lang.com/documentation/modules/color#adjust
+// https://www.w3schools.com/sass/sass_functions_color.php
+$salmon: adjust-color(lightsalmon, $lightness: 20%);
+$blue: adjust-color(lightblue, $lightness: 15%);
+$green: adjust-color(lightgreen, $lightness: 20%);
+
 * { // this is a reset of our margin and padding
   margin: 0;
   padding: 0;

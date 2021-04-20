@@ -20,6 +20,24 @@
   padding: 1.3rem;
 }
 
+// challenge
+//  add three selectors for the three modifiers single-block-item-style--position-[1,2,3]
+//  set a different background-color for those three - salmon, blue, green
+
+.single-block-item-style--position-1 {
+  // background-color: lightsalmon;
+  // $salmon from _main.scss
+  background-color: $salmon;
+}
+.single-block-item-style--position-2 {
+// background-color: blue;
+  background-color: $blue;
+}
+.single-block-item-style--position-3 {
+  // background-color: green;
+  background-color: $green;
+}
+
 .single-block-item-style__message {
   color: seagreen;
   font-size: 1.3rem;
